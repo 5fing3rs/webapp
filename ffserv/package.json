@@ -1,0 +1,17 @@
+{
+  "name": "ffserv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "angular-recaptcha": "^4.2.0",
+    "nodemailer": "^6.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Anil Kumar Upadhyay",
+  "license": "ISC"
+}

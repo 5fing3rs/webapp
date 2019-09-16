@@ -16,9 +16,10 @@ import { CustomerComponent } from './customer/customer.component';
 import { CoursesComponent } from './courses/courses.component';
 import { ObjectviewerComponent } from './objectviewer/objectviewer.component';
 import { StlModelViewerModule } from 'angular-stl-model-viewer';
-import { RecaptchaModule } from 'ng-recaptcha';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
+import { MatButtonModule} from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { RecaptchaModule } from 'angular-google-recaptcha';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,11 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     MultiSelectModule,
     DropdownModule,
     StlModelViewerModule,
-    RecaptchaModule,
+    RecaptchaModule.forRoot({
+            siteKey: '6LdXM7cUAAAAABfzIOJzEaRyo9xSil1xCOqKUIWp',
+        }),
+    MatButtonModule,
+    MatCardModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [],

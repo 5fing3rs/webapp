@@ -1,70 +1,93 @@
 
 <div class="container">
+<br/>
 <div class="row">
   <div class="col-md-6 col-sm-12 col-lg-6">
-  
+<mat-card>
+    <mat-card-title> 
+    Address
+    </mat-card-title>  
+      <h5> Five Fingers Innovative Solutions (OPC) Private Limited </h5>
+      <br/>
+      <h6> C5-113, Vindhya C4, IIIT Hyderabad Campus, Gachibowli, Hyderabad, Telangana - 500032, India </h6>
+ </mat-card>
+      <br/>
+    <mat-card>
+    <mat-card-title> 
+    Our Location
+    </mat-card-title>
+    <br/>  
+  <a href="https://www.google.com/maps/place/Five+Fingers+Innovative+Solutions/@17.4461253,78.3498729,16z/data=!4m5!3m4!1s0x0:0xf7d5a2f206a516bb!8m2!3d17.4461253!4d78.3498729">
+  <img mat-card-image src="{{locationmap}}" width="100%" alt="First slide" align="center">
+  </a>
+    </mat-card>
   </div>
-  <div class="col-md-6 col-sm-12 col-lg-6">
-<mdb-card>
 
-  <mdb-card-header class="info-color white-text text-center py-4">
+  <div class="col-md-6 col-sm-12 col-lg-6">
+<form [formGroup]="contactFormGroup" (ngSubmit)="onSubmit()">
+<mat-card >
+  <mat-card-title class="info-color white-text text-center">
     <h5>
       <strong>Contact us</strong>
     </h5>
-  </mdb-card-header>
+  </mat-card-title>
 
-
-
-  <mdb-card-body class=" px-lg-5 pt-0 justify-content-center">
-
-    <form class="text-center" style="color: #757575;" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-
-      <div class="md-form mt-3">
-        <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control"
-          mdbInput>
-        <label for="materialContactFormName">Name</label>
-      </div>
-
-      <div class="md-form">
-        <input type="email" formControlName="contactFormEmail" id="materialContactFormEmail" class="form-control"
-          mdbInput>
-        <label for="materialContactFormEmail">E-mail</label>
-      </div>
-
-      <span>Subject</span>
-      <div class="row">
-        <div class="col-md-12 col-lg-6 mx-auto">
+  <mat-card-content class="text-center">
+<div item-width="100%">  
+       <label>
+        Name:
+        <input type="text" formControlName="contactFormName" required/>
+      </label>
+</div>
+<div>      
+       <label>
+        Email:
+        <input type="email" formControlName="contactFormEmail" required/>
+        </label>
+</div>
+<div>
+       <label>
+        <span>Subject</span>
           <!--md-select formControlName="contactFormSubjects" [options]="optionsSelect" placeholder="Choose your option"></md-select-->
          <!-- Subject -->
-        <select formControlName="contactFormSubjects" class="browser-default custom-select mb-4">
+        <select formControlName="contactFormSubjects" class="browser-default custom-select mb-4" required>
           <option value="" disabled>Choose option</option>
-          <option value="1" selected>Feedback</option>
-          <option value="2">Report a bug</option>
-          <option value="3">Feature request</option>
-          <option value="4">Feature request</option>
+          <option value="1" selected>Request For 3D Print</option>
+          <option value="2">Request For Training </option>  
+          <option value="3">Feedback </option>
+          <option value="4">Queries</option>
+          <option value="5">Others</option>
         </select>
-        </div>
-      </div>
+       </label>
+</div>
+<div>
+       <label>
+        Message:
+        <br>
+         <textarea type="text" formControlName="contactFormMessage" required></textarea>
+      </label>
+</div>
+<div>
+        <label>
+          <input type=checkbox formControlName="contactFormCopy" required>
+          Send me a copy of message</label>
+</div>
+<div>
+      <recaptcha
+          [formControl]="myRecaptcha"
+          (scriptLoad)="onScriptLoad()"
+          (scriptError)="onScriptError()"
+          (callback)="verifyCallback()"
+        ></recaptcha>
+</div>
+<div>
 
-      <div class="md-form">
-        <textarea type="text" formControlName="contactFormMessage" id="materialContactFormMessage" class="form-control md-textarea"
-          mdbInput></textarea>
-        <label for="materialContactFormMessage">Message</label>
-      </div>
+<button type="submit"> Submit</button>
+</div>
 
-      <div class="row">
-        <div class="col-md-6  col-lg-6 mx-auto d-flex justify-content-center">
-          <mdb-checkbox formControlName="contactFormCopy">Send me a copy of this message</mdb-checkbox>
-        </div>
-      </div>
-      <re-captcha (resolved)="resolved($event)" siteKey="YOUR_SITE_KEY"></re-captcha>
-      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect"
-        mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">Send</button>
-
-    </form>
-
-  </mdb-card-body>
-</mdb-card>
+ </mat-card-content>
+</mat-card>
+</form>
 </div>
 </div>
 </div>

@@ -1,50 +1,54 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 col-sm-12 col-lg-6">
-      <h1>About Us</h1>
-      <br>
-      <p>
-        Five Fingers Innovative Solutions is a government recognized startup, under StartupIndia program, we provide training and
-  services related to 3D Printing, to enhance quality of life, our biomedical 3D printing program is targeted to enhance quality of life and improve healthcare services in remote areas using 3D printing and other upcoming technologies.
-     </p>
+  <br/>
+  <div class="row" *ngFor="let hero of banner; let i = index">
+    <div class="col-md-6 col-lg-6">
+  
+  <mat-card>
+  <img mat-card-image src="{{hero.image}}" width="100%" alt="First slide" align="center">
+   
+  </mat-card>
     </div>
-    <div class="col-md-6 col-sm-12 col-lg-6">
-<mdb-carousel [isControls]="true" [animation]="'slide'" >
-  <mdb-carousel-item >
-    <div class="view" >
-      <img class="d-block" src="assets/carousel/slide-1.jpg" width="100%"
-        alt="First slide">
-      <div class="mask flex-center rgba-black-light">
-      </div>
-    </div>
-  </mdb-carousel-item>
-  <mdb-carousel-item >
-    <div class="view">
-      <img class="d-block" src="assets/carousel/slide-2.jpg" width="100%" alt="Second slide">
-      <div class="mask flex-center rgba-black-light">
-      </div>
-    </div>
-  </mdb-carousel-item>
-  <mdb-carousel-item >
-    <div class="view">
-      <img class="d-block" src="assets/carousel/slide-3.jpg" width="100%"
-        alt="Third slide">
-      <div class="mask flex-center rgba-black-light">
-      </div>
-    </div>
-  </mdb-carousel-item>
-  <mdb-carousel-item >
-    <div class="view">
-      <img class="d-block"  src="assets/carousel/slide-4.jpg" width="100%"
-        alt="fourth slide">
-      <div class="mask flex-center rgba-black-light">
-      </div>
-    </div>
-  </mdb-carousel-item>
-</mdb-carousel>
+  <div class="col-md-6  col-lg-6 d-flex align-items-stretch" >
+  <mat-card>
+   <mat-card-title>
+                {{hero.topic}}
+    </mat-card-title>
+   <mat-card-content>
+   {{hero.description}}
+  </mat-card-content>
+ </mat-card>
+  </div>             
+</div>
+  <br/>
+<header>
+  Our Services
+</header>           
+<div class="container">
+  <div class="row"> 
+  <div class="col-md-6 col-sm-12 col-lg-4 d-flex align-items-stretch" *ngFor="let homesec of homesection; let i = index">
+              <mat-card >
+              <mat-card-title>
+                {{homesec.topic}}
+              </mat-card-title>
+               <img mat-card-image src="{{homesec.image}}" width="100%" alt="First slide" align="center">
+              <mat-card-content>
+                {{homesec.description}}
+               </mat-card-content>
+               </mat-card>
+  </div>
 </div>
 </div>
-</div>
-
-
-
+<br/>
+<div class="container">
+  <br/>
+  <div class="row"> 
+    <div class="col-md-3 col-lg-3 d-flex align-items-stretch" *ngFor="let news of newssection; let i = index">
+    <mat-card>
+  <img mat-card-image src="{{news.image}}" width="100%" alt="First slide" align="center">
+     <h5>
+                {{news.topic}}
+    </h5>
+ </mat-card>
+  </div>           
+  </div>
+  <br/>
